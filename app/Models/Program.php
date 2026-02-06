@@ -4,11 +4,11 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Spatie\Translatable\HasTranslations; // Import Trait Translate
+use Spatie\Translatable\HasTranslations;
 use Spatie\MediaLibrary\HasMedia;
-use Spatie\MediaLibrary\InteractsWithMedia; // Import Trait Media
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Program extends Model
+class Program extends Model implements HasMedia 
 {
     use HasFactory, HasTranslations, InteractsWithMedia;
 
@@ -24,7 +24,6 @@ class Program extends Model
         'registration_deadline',
     ];
 
-    // Beritahu Spatie kolom mana saja yang bisa diterjemahkan (ID/EN)
     public $translatable = [
         'title', 
         'description', 
@@ -32,11 +31,15 @@ class Program extends Model
         'activities'
     ];
 
-    // Agar tipe data JSON dibaca sebagai Array oleh Laravel
     protected $casts = [
         'is_active' => 'boolean',
         'registration_deadline' => 'date',
         'overview' => 'array',
         'activities' => 'array',
     ];
+
+    public function registerMediaCollections(): void
+    {
+        $this->addMediaCollection('program_gallery');
+    }
 }
