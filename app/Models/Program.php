@@ -34,8 +34,8 @@ class Program extends Model implements HasMedia
     protected $casts = [
         'is_active' => 'boolean',
         'registration_deadline' => 'date',
-        'overview' => 'array',
-        'activities' => 'array',
+        // 'overview' => 'array',
+        // 'activities' => 'array',
     ];
 
     public function registerMediaCollections(): void
