@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Program;
 use App\Models\Partner;
+use App\Models\OrganizationMember;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
@@ -136,6 +137,29 @@ class PublicController extends Controller
         $partners = $query->get(); // Kita ambil semua (get) atau bisa paginate jika data sangat banyak
 
         return view('pages.partners', compact('partners'));
+    }
+
+    public function organization(Request $request)
+    {
+        // 1. Mulai Query dasar (hanya yang aktif)
+        $query = OrganizationMember::where('is_active', true);
+
+        // 2. Cek apakah ada pencarian 'q' dari URL
+        if ($request->has('q') && $request->q != '') {
+            $search = $request->q;
+            
+            // Filter berdasarkan Nama ATAU Jabatan
+            $query->where(function($q) use ($search) {
+                $q->where('name', 'like', "%{$search}%")
+                  ->orWhere('position', 'like', "%{$search}%");
+            });
+        }
+
+        // 3. Urutkan dan ambil data
+        $members = $query->orderBy('sort_order', 'asc')->get();
+
+        // 4. Kirim ke View
+        return view('pages.about.organization', compact('members'));
     }
 
     // Fungsi untuk ganti bahasa di frontend
