@@ -2,6 +2,9 @@
 
 namespace Database\Seeders;
 
+use Database\Seeders\PartnerSeeder;
+use Database\Seeders\ProgramSeeder;
+
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Facades\Hash;
@@ -14,14 +17,20 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // Membuat User Admin Global UNPAB
-        User::factory()->create([
-            'name' => 'Admin Global UNPAB',
-            'email' => 'admin@unpab.com',
-            'password' => Hash::make('password'),
-        ]);
+        // 1. Membuat User Admin Global UNPAB
+        // Menggunakan updateOrCreate agar aman jika dijalankan berulang (idempotent)
+        User::updateOrCreate(
+            ['email' => 'admin@unpab.com'], // Cek berdasarkan email
+            [
+                'name' => 'Admin Global UNPAB',
+                'password' => Hash::make('password'),
+            ]
+        );
         
-        // Opsional: Tambahkan dummy user lain jika perlu
-        // User::factory(10)->create();
+        // 2. Menjalankan Seeder Lainnya
+        $this->call([
+            PartnerSeeder::class,
+            ProgramSeeder::class,
+        ]);
     }
 }
