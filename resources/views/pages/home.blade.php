@@ -62,7 +62,7 @@
                 </p>
 
                 <div class="flex flex-col sm:flex-row gap-4 md:gap-5 justify-center items-center px-4">
-                    <a href="{{ route('programs.index') }}" class="group relative px-8 py-4 bg-yellow-500 text-green-900 font-black rounded-2xl overflow-hidden hover:shadow-lg hover:shadow-yellow-500/40 transition-all hover:-translate-y-1 w-full sm:w-auto">
+                    <a href="#programs" class="group relative px-8 py-4 bg-yellow-500 text-green-900 font-black rounded-2xl overflow-hidden hover:shadow-lg hover:shadow-yellow-500/40 transition-all hover:-translate-y-1 w-full sm:w-auto">
                         <span class="relative z-10 flex items-center justify-center gap-2">
                             Explore Programs
                             <svg class="w-4 h-4 transition-transform group-hover:translate-x-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 8l4 4m0 0l-4 4m4-4H3"></path></svg>
@@ -70,7 +70,7 @@
                         <div class="absolute inset-0 bg-yellow-400 transform scale-x-0 group-hover:scale-x-100 transition-transform origin-left duration-300"></div>
                     </a>
                     
-                    <a href="{{ route('partners.index') }}" class="group px-8 py-4 bg-white/5 border border-white/30 text-white font-bold rounded-2xl hover:bg-white/10 transition-all backdrop-blur-sm w-full sm:w-auto flex items-center justify-center">
+                    <a href="#partners" class="group px-8 py-4 bg-white/5 border border-white/30 text-white font-bold rounded-2xl hover:bg-white/10 transition-all backdrop-blur-sm w-full sm:w-auto flex items-center justify-center">
                         Our Partners
                     </a>
                 </div>
