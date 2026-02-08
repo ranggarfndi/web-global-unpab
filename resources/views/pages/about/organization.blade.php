@@ -91,12 +91,12 @@
 
                         {{-- Info Anggota --}}
                         <div class="text-center pb-4 md:pb-8 px-2 md:px-6 w-full">
-                            {{-- Nama: Tetap dibatasi 2 baris agar tidak merusak layout --}}
-                            <h3 class="text-sm md:text-xl font-black text-green-900 mb-1 md:mb-2 group-hover:text-green-700 transition-colors line-clamp-2 leading-tight">
+                            {{-- Nama: FULL TEXT --}}
+                            <h3 class="text-sm md:text-xl font-black text-green-900 mb-1 md:mb-2 group-hover:text-green-700 transition-colors leading-tight">
                                 {{ $member->name }}
                             </h3>
                             
-                            {{-- Jabatan: FULL TEXT (Tidak ada truncate/titik-titik) --}}
+                            {{-- Jabatan: FULL TEXT --}}
                             <div class="inline-block px-2 py-1 bg-yellow-500/10 rounded-lg max-w-full">
                                 <p class="text-[9px] md:text-xs font-black text-yellow-600 uppercase tracking-wider leading-tight">
                                     {{ $member->position }}
