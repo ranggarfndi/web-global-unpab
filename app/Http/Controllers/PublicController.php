@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Program;
-use App\Models\Partner;
+use App\Models\ArchivedProgram;
 use App\Models\OrganizationMember;
+use App\Models\Partner;
+use App\Models\Program;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
 
@@ -169,5 +170,32 @@ class PublicController extends Controller
             session()->put('locale', $locale);
         }
         return redirect()->back();
+    }
+
+    public function archives(Request $request)
+    {
+        $query = \App\Models\ArchivedProgram::where('is_published', true);
+
+        if ($request->has('q')) {
+            $search = $request->q;
+            // Karena translatable, kita cari di dalam JSON title
+            $query->where('title->' . app()->getLocale(), 'like', "%{$search}%")
+                ->orWhere('summary->' . app()->getLocale(), 'like', "%{$search}%");
+        }
+
+        $archives = $query->orderBy('execution_date', 'desc')->get();
+
+        return view('pages.archives.index', compact('archives'));
+    }
+
+    public function archiveShow($id)
+    {
+        // Ambil data arsip beserta media dokumentasinya
+        $archive = \App\Models\ArchivedProgram::findOrFail($id);
+        
+        // Ambil semua foto dari collection 'archive_documentation'
+        $documentations = $archive->getMedia('archive_documentation');
+
+        return view('pages.archives.show', compact('archive', 'documentations'));
     }
 }

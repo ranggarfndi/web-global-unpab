@@ -26,4 +26,8 @@ Route::middleware(['web'])->group(function () {
         Route::get('/{slug}', [PublicController::class, 'show'])->name('show');
     });
 
+    // 6. Archives
+    Route::get('/archives', [PublicController::class, 'archives'])->name('archives.index');
+    Route::get('/archives/{id}', [PublicController::class, 'archiveShow'])->name('archives.show');
+
 });

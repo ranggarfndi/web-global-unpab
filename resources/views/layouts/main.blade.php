@@ -10,6 +10,9 @@
 
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     
+    {{-- Tambahkan baris ini untuk CSS tambahan --}}
+    @stack('styles')
+
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
         .line-clamp-3 {
@@ -18,7 +21,6 @@
             -webkit-box-orient: vertical;  
             overflow: hidden;
         }
-        /* Transisi halus untuk slider */
         .fade-enter-active, .fade-leave-active { transition: opacity 1s ease; }
         .fade-enter-from, .fade-leave-to { opacity: 0; }
     </style>
@@ -32,6 +34,9 @@
     </main>
 
     @include('partials.footer')
+
+    {{-- Tambahkan baris ini untuk JS tambahan --}}
+    @stack('scripts')
 
 </body>
 </html>
