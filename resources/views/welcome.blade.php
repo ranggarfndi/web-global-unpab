@@ -65,10 +65,10 @@
                         : 'Facilitating global academic exchange, strategic partnerships, and unforgettable international experiences for UNPAB community.' }}
                 </p>
                 <div class="flex flex-col sm:flex-row gap-4">
-                    <a href="#programs" class="inline-flex items-center justify-center px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all shadow-lg shadow-slate-200">
+                    <a href="{{ route('programs') }}" class="inline-flex items-center justify-center px-8 py-4 bg-slate-900 text-white font-bold rounded-2xl hover:bg-slate-800 transition-all shadow-lg shadow-slate-200">
                         Explore Programs
                     </a>
-                    <a href="#partners" class="inline-flex items-center justify-center px-8 py-4 bg-white border border-slate-200 text-slate-600 font-bold rounded-2xl hover:bg-slate-50 transition-all">
+                    <a href="{{ route('partners') }}" class="inline-flex items-center justify-center px-8 py-4 bg-white border border-slate-200 text-slate-600 font-bold rounded-2xl hover:bg-slate-50 transition-all">
                         Our Partners
                     </a>
                 </div>

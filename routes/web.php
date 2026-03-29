@@ -18,6 +18,7 @@ Route::middleware(['web'])->group(function () {
 
     // 4. Struktur Organisasi (Pastikan ada di dalam grup ini)
     Route::get('/about/organization-structure', [PublicController::class, 'organization'])->name('about.organization');
+    Route::get('/about/contact', [PublicController::class, 'contact'])->name('about.contact');
 
     // 5. Programs Group
     Route::prefix('programs')->name('programs.')->group(function () {

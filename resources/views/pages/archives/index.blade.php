@@ -5,7 +5,7 @@
 @section('content')
 
     {{-- 1. HERO HEADER (Selaras dengan Partner/Org) --}}
-    <section class="relative bg-green-950 pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
+    <section class="relative bg-green-900 pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
         <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
         <div class="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-yellow-500 rounded-full blur-[80px] md:blur-[120px] opacity-10 translate-x-1/2 -translate-y-1/2"></div>
         

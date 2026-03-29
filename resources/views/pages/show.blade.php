@@ -170,7 +170,7 @@
                                     </div>
                                 </div>
 
-                                <a href="#" class="group relative flex flex-col items-center justify-center w-full py-7 bg-yellow-500 text-green-950 rounded-[1.5rem] shadow-xl shadow-yellow-500/20 hover:shadow-yellow-500/40 transition-all duration-500 transform hover:-translate-y-2 active:scale-95 overflow-hidden">
+                                <a href="{{ route('about.contact') }}" class="group relative flex flex-col items-center justify-center w-full py-7 bg-yellow-500 text-green-950 rounded-[1.5rem] shadow-xl shadow-yellow-500/20 hover:shadow-yellow-500/40 transition-all duration-500 transform hover:-translate-y-2 active:scale-95 overflow-hidden">
                                     <div class="absolute inset-0 bg-gradient-to-r from-yellow-400 via-yellow-500 to-yellow-600 opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
                                     
                                     <div class="relative z-10 flex flex-col items-center text-center px-4">

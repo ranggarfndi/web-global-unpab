@@ -63,6 +63,10 @@
                                 <span class="block text-xs font-black text-green-900 group-hover/item:text-green-700">Organization Structure</span>
                                 <span class="block text-[10px] text-slate-500 font-medium">Meet the Team</span>
                             </a>
+                            <a href="{{ route('about.contact') }}" class="block px-4 py-3 rounded-xl hover:bg-green-50 transition-colors group/item">
+                                <span class="block text-xs font-black text-green-900 group-hover/item:text-green-700">Contact Us</span>
+                                <span class="block text-[10px] text-slate-500 font-medium">Get in touch with IO UNPAB</span>
+                            </a>
                         </div>
                     </div>
                 </div>
@@ -171,6 +175,9 @@
             <div x-show="subOpenAbout" class="pl-2 mt-2 space-y-2 flex flex-col bg-slate-50/50 rounded-xl p-3">
                 <a href="{{ route('about.organization') }}" class="block px-2 py-2 text-sm font-bold text-green-800 hover:text-green-600">
                     Organization Structure
+                </a>
+                <a href="{{ route('about.contact') }}" class="block px-2 py-2 text-sm font-bold text-green-800 hover:text-green-600">
+                    Contact Us
                 </a>
             </div>
         </div>

@@ -198,4 +198,9 @@ class PublicController extends Controller
 
         return view('pages.archives.show', compact('archive', 'documentations'));
     }
+    
+    public function contact()
+    {
+        return view('pages.about.contact');
+    }
 }
