@@ -24,23 +24,38 @@
         </div>
     </section>
 
+    {{-- FILTER TARGET SECTION --}}
     <section class="bg-white/90 backdrop-blur-md border-b border-slate-200 sticky top-20 z-30 shadow-sm transition-all duration-300">
-        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3">
-            <div class="flex flex-nowrap overflow-x-auto justify-start md:justify-center items-center gap-2 md:gap-3 w-full scrollbar-hide">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-3 md:py-4">
+            {{-- 
+                Mobile: grid grid-cols-2 (2 atas, 2 bawah)
+                Desktop: md:flex (baris lurus ke samping)
+            --}}
+            <div class="grid grid-cols-2 md:flex md:flex-nowrap md:justify-center items-center gap-2 md:gap-3 w-full">
                 @php
                     function getBtnClass($target, $activeTarget) {
-                        $base = "flex-none whitespace-nowrap px-5 py-2.5 rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest transition-all duration-300 border ";
+                        // Tambahkan 'w-full text-center' agar tombol mengisi kolom grid di mobile
+                        $base = "w-full md:w-auto whitespace-nowrap px-4 py-3 md:px-6 md:py-2.5 rounded-xl md:rounded-full text-[10px] md:text-xs font-black uppercase tracking-widest transition-all duration-300 border text-center ";
+                        
                         if ($target == $activeTarget) {
-                            return $base . "bg-green-900 border-green-900 text-yellow-500 shadow-md transform scale-105";
+                            return $base . "bg-green-900 border-green-900 text-yellow-500 shadow-md transform scale-[1.02] md:scale-105";
                         }
-                        return $base . "bg-white border-slate-200 text-green-700 hover:border-green-500 hover:text-green-900";
+                        return $base . "bg-white border-slate-200 text-green-700 hover:border-green-500 hover:text-green-900 shadow-sm";
                     }
                 @endphp
 
-                <a href="{{ route('programs.index') }}" class="{{ getBtnClass('all', $activeTarget) }}">All Targets</a>
-                <a href="{{ route('programs.target', 'student') }}" class="{{ getBtnClass('student', $activeTarget) }}">Students</a>
-                <a href="{{ route('programs.target', 'lecturer') }}" class="{{ getBtnClass('lecturer', $activeTarget) }}">Lecturers</a>
-                <a href="{{ route('programs.target', 'staff') }}" class="{{ getBtnClass('staff', $activeTarget) }}">Staff</a>
+                <a href="{{ route('programs.index') }}" class="{{ getBtnClass('all', $activeTarget) }}">
+                    All Targets
+                </a>
+                <a href="{{ route('programs.target', 'student') }}" class="{{ getBtnClass('student', $activeTarget) }}">
+                    Students
+                </a>
+                <a href="{{ route('programs.target', 'lecturer') }}" class="{{ getBtnClass('lecturer', $activeTarget) }}">
+                    Lecturers
+                </a>
+                <a href="{{ route('programs.target', 'staff') }}" class="{{ getBtnClass('staff', $activeTarget) }}">
+                    Staff
+                </a>
             </div>
         </div>
     </section>

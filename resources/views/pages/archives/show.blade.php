@@ -15,16 +15,25 @@
 @section('content')
 
     {{-- 1. HERO HEADER --}}
-    <section class="relative bg-green-950 pt-32 pb-20 md:pt-40 md:pb-32 overflow-hidden">
+    <section class="relative bg-green-900 pt-24 pb-16 md:pt-32 md:pb-20 overflow-hidden">
+        {{-- Pattern Cubes --}}
         <div class="absolute inset-0 opacity-10 pointer-events-none" style="background-image: url('https://www.transparenttextures.com/patterns/cubes.png');"></div>
-        <div class="absolute top-0 right-0 w-96 h-96 bg-yellow-500 rounded-full blur-[120px] opacity-10 translate-x-1/2 -translate-y-1/2"></div>
         
+        {{-- Glow Top Right (Kuning) --}}
+        <div class="absolute top-0 right-0 w-64 h-64 md:w-96 md:h-96 bg-yellow-500 rounded-full blur-[80px] md:blur-[120px] opacity-20 translate-x-1/2 -translate-y-1/2"></div>
+        
+        {{-- Glow Bottom Left (Hijau) --}}
+        <div class="absolute bottom-0 left-0 w-64 h-64 md:w-96 md:h-96 bg-green-500 rounded-full blur-[80px] md:blur-[120px] opacity-20 -translate-x-1/2 translate-y-1/2"></div>
+
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             <div class="max-w-4xl">
-                <nav class="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-green-400/60 mb-8">
+                {{-- Breadcrumbs --}}
+                <nav class="flex items-center gap-2 text-[10px] font-black uppercase tracking-[0.2em] text-green-400/60 mb-6 md:mb-8">
                     <a href="{{ route('home') }}" class="hover:text-yellow-500 transition-colors">Home</a>
                     <span class="text-white/20">/</span>
                     <a href="{{ route('archives.index') }}" class="hover:text-yellow-500 transition-colors">Archives</a>
+                    <span class="text-white/20">/</span>
+                    <span class="text-green-200/50 truncate">Report Details</span>
                 </nav>
 
                 <h1 class="text-3xl md:text-5xl lg:text-7xl font-black text-white leading-tight mb-8">
@@ -36,7 +45,9 @@
                         {{ str_replace('_', ' ', $archive->category) }}
                     </span>
                     <span class="text-green-400 text-[10px] font-black uppercase tracking-[0.2em] flex items-center gap-2">
-                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
+                        <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path>
+                        </svg>
                         Successfully Executed: {{ $archive->execution_date->format('d M Y') }}
                     </span>
                 </div>
